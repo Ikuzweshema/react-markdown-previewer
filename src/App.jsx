@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./App.css"
 import ReactMarkDown from "react-markdown"
 export default function App() {
   const defaultMarkdown = `
@@ -36,8 +37,8 @@ There's also [links](https://www.freecodecamp.com), and
 
   const [markDownText, setMarkDownText] = useState(defaultMarkdown)
   return <div>
-    <div className=" boxes-editor">
-      <textarea name="editor" onChange={(e) => {
+    <div className=" boxes-container">
+      <textarea name="editor" id="editor" onChange={(e) => {
         setMarkDownText(e.target.value)
       }} value={markDownText} className="editor">
 

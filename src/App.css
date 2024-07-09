@@ -1,0 +1,55 @@
+.boxes-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 40px;
+    width: 90%;
+  }
+  
+  #editor {
+    width: 100%;
+    height: 80vh;
+    font-size: 18px;
+    background-color: #2f2f2f;
+    resize: none;
+    color: white;
+    padding: 10px;
+    overflow: auto;
+    border-radius: 20px;
+  }
+  
+  #preview {
+    width: 100%;
+    height: 80vh;
+    margin-top: 10px;
+    font-size: 18px;
+    background-color: #2f2f2f;
+    color: white;
+    padding: 10px;
+    overflow: auto;
+    border-radius: 20px;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .boxes-container {
+      flex-direction: row;
+      width: 80%;
+    }
+  
+    #editor {
+      width: 50%;
+      height: 80vh;
+      margin-right: 10px;
+    }
+  
+    #preview {
+      width: 50%;
+      height: 80vh;
+      margin-left: 10px;
+      margin-top: 0;
+    }
+  }
