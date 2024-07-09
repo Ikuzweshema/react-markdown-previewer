@@ -1,35 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import ReactMarkDown from "react-markdown"
+export default function App() {
+  const defaultMarkdown = `
+# Welcome to my React Markdown Previewer!
 
-function App() {
-  const [count, setCount] = useState(0)
+## This is a sub-heading...
+### And here's some other cool stuff:
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+Heres some code, \`<div></div>\`, between 2 backticks.
+
+\`\`\`
+// this is multi-line code:
+
+function anotherExample(firstLine, lastLine) {
+  if (firstLine == '\`\`\`' && lastLine == '\`\`\`') {
+    return multiLineCode;
+  }
 }
+\`\`\`
 
-export default App
+You can also make text **bold**... whoa!
+Or _italic_.
+Or... **_both!_**
+
+There's also [links](https://www.freecodecamp.com), and
+> Block Quotes!
+
+![React Logo w/ Text](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png)
+
+- And of course there are lists.
+  - Some are bulleted.
+      - With different indentation levels.
+        - That look like this.
+`;
+
+  const [markDownText, setMarkDownText] = useState(defaultMarkdown)
+  return <div>
+    <div className=" boxes-editor">
+      <textarea name="editor" onChange={(e) => {
+        setMarkDownText(e.target.value)
+      }} value={markDownText} className="editor">
+
+      </textarea>
+      <div id="preview" className="">
+        <ReactMarkDown>{markDownText}</ReactMarkDown>
+      </div>
+    </div>
+  </div>
+}
